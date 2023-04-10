@@ -1,0 +1,7 @@
+neovim
+fonts-font-awesome
+build-essential
+git
+zsh
+cups
+stow

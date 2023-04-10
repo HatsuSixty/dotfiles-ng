@@ -1,0 +1,13 @@
+python-psutil
+thunar
+alacritty
+wofi
+swaybg
+sway
+grim
+slurp
+dunst
+pulseaudio
+udiskie
+cups
+i3blocks

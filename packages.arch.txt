@@ -1,0 +1,9 @@
+neovim
+ttf-font-awesome
+base-devel
+git
+zsh
+wget
+unzip
+cups
+stow
