@@ -68,4 +68,8 @@ if not isfile(HOME + "/.cache/fonts.zip"):
             copy(HOME + "/.cache/fonts/" + f, "/usr/share/fonts/" + f)
 
 # install configuration files
+
+# backup .bashrc
+move(f"{HOME}/.bashrc", f"{HOME}/.bashrc.bak")
+
 run(["stow", "."])
