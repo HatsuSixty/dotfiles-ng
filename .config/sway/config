@@ -170,4 +170,6 @@ bar {
     height 23
 }
 
+exec_always --no-startup-id sh ~/.config/autostart.sh
+
 include /etc/sway/config.d/*
