@@ -73,3 +73,14 @@ if not isfile(HOME + "/.cache/fonts.zip"):
 move(f"{HOME}/.bashrc", f"{HOME}/.bashrc.bak")
 
 run(["stow", "."])
+
+# Install zsh-syntax-highlighting
+
+ZSH_SH_PATH = f"{HOME}/.zshsh"
+if not isdir(ZSH_SH_PATH) and not isfile(ZSH_SH_PATH):
+    run(["wget", "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.7.1.tar.gz", "-O", f"{HOME}/.cache/a.tar.gz"])
+    run(["tar", "-axvf", f"{HOME}/.cache/a.tar.gz", "-C", f"{HOME}/.cache"])
+    move(f"{HOME}/.cache/zsh-syntax-highlighting-0.7.1", ZSH_SH_PATH)
+
+# Install powerlevel0k
+run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME}/.powerlevel10k"])
