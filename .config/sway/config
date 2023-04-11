@@ -66,11 +66,16 @@ input "type:keyboard"   {
     bindsym $mod+Shift+Print exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 
     # zoom app
-    bindsym $mod+z ~/.opt/boomer/boomer
+    bindsym $mod+z exec ~/.opt/boomer/boomer
+
+    # volume
+    bindsym KP_Up exec sh ~/.config/scripts/volume_up
+    bindsym KP_Down exec sh ~/.config/scripts/volume_down
 
 #
 # Moving around:
 #
+
     # Move your focus around
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
@@ -82,9 +87,11 @@ input "type:keyboard"   {
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
+
 #
 # Workspaces:
 #
+
     # Switch to workspace
     bindsym $mod+1 workspace number 1
     bindsym $mod+2 workspace number 2
@@ -108,9 +115,11 @@ input "type:keyboard"   {
     bindsym $mod+Shift+8 move container to workspace number 8
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
+
 #
 # Layout stuff:
 #
+
     bindsym $mod+b splith
     bindsym $mod+v splitv
 
@@ -126,9 +135,11 @@ input "type:keyboard"   {
     bindsym $mod+space focus mode_toggle
 
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
+
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -138,9 +149,11 @@ input "type:keyboard"   {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
+
 mode "resize" {
     bindsym $left resize shrink width 10px
     bindsym $down resize grow height 10px
@@ -155,6 +168,7 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
+
 bar {
     position bottom
 
