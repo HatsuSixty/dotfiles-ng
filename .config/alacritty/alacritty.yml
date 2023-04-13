@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/doom_one.yml
+  - ~/.config/alacritty/doom_one_but_without_the_boring_background.yml
 
 font:
   normal:
@@ -21,4 +21,4 @@ font:
   size: 14
 
 window:
-  opacity: 0.5
+  opacity: 0.67
