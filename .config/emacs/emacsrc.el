@@ -38,6 +38,7 @@
                      astyle
                      whitespace-cleanup-mode
                      elcord
+                     cmake-mode
                      ))
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
