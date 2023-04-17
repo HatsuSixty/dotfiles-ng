@@ -71,7 +71,7 @@
 
 ;;; c-mode
 
-(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
+;;(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
 (add-hook 'c-mode-hook (lambda ()
                          (interactive)
