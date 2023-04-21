@@ -58,7 +58,7 @@ alias last_installed="ls --time-style=+%d\ %b\ %G\ %H:%M -lct /etc | tail -1 | a
 alias wget="wget -c"
 
 # list
-alias ls='ls --color=auto -lah'
+alias ls='exa --color=always -lah'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
