@@ -92,3 +92,4 @@ PATH=$PATH:/home/roberto/.nimble/bin
 PATH=$PATH:/home/roberto/.opt/node/bin
 PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bin
 PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/Godot
+PATH=$PATH:/home/roberto/.opt/platform-tools
