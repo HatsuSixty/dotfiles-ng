@@ -119,6 +119,7 @@
 (add-hook 'loisp-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
 (add-hook 'gdscript-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'js-mode-hook 'rc/set-up-whitespace-handling)
 
 (setq whitespace-style
    (quote
