@@ -25,6 +25,10 @@ bindkey "^H" backward-kill-word
 
 # Enable zsh syntax highlighting
 source ~/.zshsh/zsh-syntax-highlighting.zsh
+
+# Enable zsh auto suggestions
+source ~/.zshas/zsh-autosuggestions.zsh
+
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
 # Source .posixshellrc-personal
