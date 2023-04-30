@@ -1,0 +1,145 @@
+* {
+    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: #000000;
+    border-bottom: 3px solid rgb(65, 65, 65);
+    color: #ffffff;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+#workspaces button, button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+    border-bottom: 3px solid rgb(65, 65, 65);
+    margin-left: 3;
+    margin-right: 3;
+    padding: 0 5px;
+    background-color: rgb(48, 48, 48);
+    color: #ffffff;
+}
+
+#workspaces button:hover, button:hover {
+    background: rgb(70, 70, 70);
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.active {
+    background-color: rgb(82, 82, 82);
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#clock,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#custom-network,
+#tray,
+#idle_inhibitor {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#window,
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    background-color: #64727D;
+    border-bottom: 3px solid #8598a6;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#cpu {
+    background-color: #2ecc71;
+    color: #000000;
+    border-bottom: 3px solid #3bff74;
+}
+
+#memory {
+    background-color: #9b59b6;
+    border-bottom: 3px solid #9e6fff;
+}
+
+#backlight {
+    background-color: #90b1b1;
+    border-bottom: 3px solid #92e3e3;
+}
+
+#custom-network {
+    background-color: #66cc99;
+    color: #000000;
+    border-bottom: 3px solid #89efdf;
+}
+
+#temperature {
+    background-color: #f0932b;
+    border-bottom: 3px solid #f2C52d;
+}
+
+#temperature.critical {
+    background-color: #eb4d4b;
+    border-bottom: 3px solid #f2C52d;
+}
+
+#tray {
+    background-color: #2980b9;
+    border-bottom: 3px solid rgb(65, 65, 65);
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#idle_inhibitor {
+    background-color: #3a4245;
+    border-bottom: 3px solid #535d61;
+}
+
+#idle_inhibitor.activated {
+    background-color: #dadef1;
+    border-bottom: 3px solid #ffffff;
+    color: #2d3436;
+}

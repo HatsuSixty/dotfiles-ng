@@ -13,7 +13,8 @@ if getenv("USER") != "root":
     run(["sudo", "python", __file__] + argv[1:])
     exit(0)
 
-HOME = "/home/" + listdir("/home")[0]
+USER = listdir("/home")[0]
+HOME = "/home/" + USER
 
 def usage(stream):
     print("USAGE: ./install.py <SUBCOMMAND>", file=stream)
@@ -34,6 +35,13 @@ if argv[1] == "arch":
 elif argv[1] == "archwayland":
     run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.arch.txt"))
     run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.archwayland.txt"))
+
+    # install yay
+    run(["sudo", "-u", USER, f"git clone https://aur.archlinux.org/yay.git {HOME}/.cache/yay-aur"])
+    run(["sh", "-c", f"cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
+
+    # install waybar
+    run(["sudo", "-u", USER, "yay -S waybar-hyprland"])
 elif argv[1] == "fedora":
     run(["dnf", "install"] + get_programs_from_packagestxt("packages.fedora.txt"))
 elif argv[1] == "ubuntu":
