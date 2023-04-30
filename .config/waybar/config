@@ -1,8 +1,7 @@
 {
     "spacing": 4,
 
-    "modules-left": ["wlr/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["wlr/workspaces", "hyprland/window"],
     "modules-right": [
         "idle_inhibitor", "custom/network", "cpu", "memory", "temperature", "backlight", "clock", "tray"
     ],
