@@ -11,3 +11,4 @@ cups
 hyprland
 hyprpaper
 inotify-tools
+dex

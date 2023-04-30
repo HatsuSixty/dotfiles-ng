@@ -11,6 +11,7 @@ run dunst
 run pulseaudio --start
 run fcitx-autostart
 run udiskie
+run dex -a
 
 gnome_schema=org.gnome.desktop.interface
 cursor_theme=macOS-Monterey
