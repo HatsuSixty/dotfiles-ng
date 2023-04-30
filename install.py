@@ -41,7 +41,7 @@ elif argv[1] == "archwayland":
     run(["sh", "-c", f"cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
 
     # install waybar
-    run(["sudo", "-u", USER, "yay -S waybar-hyprland"])
+    run(["sudo", "-u", USER, "sh", "-c", "yay -S waybar-hyprland"])
 elif argv[1] == "fedora":
     run(["dnf", "install"] + get_programs_from_packagestxt("packages.fedora.txt"))
 elif argv[1] == "ubuntu":
