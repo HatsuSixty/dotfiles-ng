@@ -5,7 +5,11 @@
 
 window#waybar {
     background-color: #000000;
-    border-bottom: 3px solid rgb(65, 65, 65);
+
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(0.25turn, #520092, #00c5ff 40%, #520092 65%);
+    border-image-slice: 1;
+
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -15,36 +19,27 @@ window#waybar.hidden {
     opacity: 0.2;
 }
 
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
 #workspaces button, button {
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
-    border-bottom: 3px solid rgb(65, 65, 65);
+    border-bottom: 3px solid #520092;
     margin-left: 3;
     margin-right: 3;
     padding: 0 5px;
-    background-color: rgb(48, 48, 48);
+    background-color: rgb(60, 0, 124);
     color: #ffffff;
 }
 
 #workspaces button:hover, button:hover {
-    background: rgb(70, 70, 70);
+    background: rgb(104, 22, 168);
     box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.active {
-    background-color: rgb(82, 82, 82);
+    background-color: #7e23c4;
 }
 
 #workspaces button.urgent {
@@ -121,7 +116,7 @@ label:focus {
 
 #tray {
     background-color: #2980b9;
-    border-bottom: 3px solid rgb(65, 65, 65);
+    border-bottom: 3px solid #520092;
 }
 
 #tray > .passive {
