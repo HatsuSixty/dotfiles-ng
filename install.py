@@ -37,7 +37,7 @@ elif argv[1] == "archwayland":
     run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.archwayland.txt"))
 
     # install yay
-    run(["sudo", "-u", USER, f"git clone https://aur.archlinux.org/yay.git {HOME}/.cache/yay-aur"])
+    run(["sudo", "-u", USER, "sh", "-c", f"git clone https://aur.archlinux.org/yay.git {HOME}/.cache/yay-aur"])
     run(["sh", "-c", f"cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
 
     # install waybar
