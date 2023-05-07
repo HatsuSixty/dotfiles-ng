@@ -14,6 +14,11 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt appendhistory
 
+# Make autocomplete prettier
+autoload -U compinit && compinit -u
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
 # Shortcuts
 bindkey "^[[1;5D" backward-word
 bindkey "^[[1;5C" forward-word
