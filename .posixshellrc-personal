@@ -1,3 +1,5 @@
+#!/bin/sh
+
 function addtopath()
 {
     echo "PATH=\$PATH:$1" >> ~/.posixshellrc-personal
