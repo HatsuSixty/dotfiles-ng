@@ -83,6 +83,10 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+echo "----------------------------------"
+echo " \033[31;40m-=-= HEY CHECK \033[32;40m'FR.md'\033[31;40m BABE =-=-\033[m "
+echo "----------------------------------"
+
 PATH=$PATH:/home/roberto/.opt/porth/
 PATH=$PATH:/home/roberto/.opt/boomer/
 PATH=$PATH:/home/roberto/.opt/ascii-image-converter/

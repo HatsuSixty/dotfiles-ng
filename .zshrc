@@ -29,9 +29,8 @@ source ~/.zshsh/zsh-syntax-highlighting.zsh
 # Enable zsh auto suggestions
 source ~/.zshas/zsh-autosuggestions.zsh
 
+# Init powerlevel10k
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
-
-# Init powerlevel 10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Source .posixshellrc-personal
