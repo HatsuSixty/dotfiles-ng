@@ -31,8 +31,8 @@ source ~/.zshas/zsh-autosuggestions.zsh
 
 source ~/.powerlevel10k/powerlevel10k.zsh-theme
 
-# Source .posixshellrc-personal
-[[ -f ~/.posixshellrc-personal ]] && . ~/.posixshellrc-personal
-
 # Init powerlevel 10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Source .posixshellrc-personal
+[[ -f ~/.posixshellrc-personal ]] && . ~/.posixshellrc-personal
