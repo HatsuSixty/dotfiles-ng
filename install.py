@@ -30,22 +30,38 @@ if len(argv) < 2:
     usage(stderr)
     exit(1)
 
+def exec_as_normal_user(command):
+    assert isinstance(command, list)
+    run(["sudo", "-u", USER, "sh", "-c", " ".join(command)])
+
+def install_packages_arch(packages):
+    assert isinstance(packages, list)
+    run(["pacman", "-Syu", "--needed"] + packages)
+
+def install_packages_fedora(packages):
+    assert isinstance(packages, list)
+    run(["dnf", "install"] + packages)
+
+def install_packages_ubuntu(packages):
+    assert isinstance(packages, list)
+    run(["apt", "install"] + packages)
+
 if argv[1] == "arch":
-    run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.arch.txt"))
+    install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
 elif argv[1] == "archwayland":
-    run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.arch.txt"))
-    run(["pacman", "-Syu", "--needed"] + get_programs_from_packagestxt("packages.archwayland.txt"))
+    install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
+    install_packages_arch(get_programs_from_packagestxt("packages.archwayland.txt"))
 
     # install yay
-    run(["sudo", "-u", USER, "sh", "-c", f"git clone https://aur.archlinux.org/yay.git {HOME}/.cache/yay-aur"])
-    run(["sh", "-c", f"cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
+    exec_as_normal_user(["git", "clone", "https://aur.archlinux.org/yay.git", f"{HOME}/.cache/yay-aur"])
+    run(["sh", "-c", "cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
 
     # install waybar
-    run(["sudo", "-u", USER, "sh", "-c", "yay -S waybar-hyprland"])
+    exec_as_normal_user(["yay", "-S", "waybar-hyprland"])
 elif argv[1] == "fedora":
-    run(["dnf", "install"] + get_programs_from_packagestxt("packages.fedora.txt"))
+    install_packages_fedora(get_programs_from_packagestxt("packages.fedora.txt"))
 elif argv[1] == "ubuntu":
-    run(["apt", "install"] + get_programs_from_packagestxt("packages.ubuntu.txt"))
+    install_packages_ubuntu(get_programs_from_packagestxt("packages.ubuntu.txt"))
 elif argv[1] == "help":
     usage(stdout)
     exit(0)
