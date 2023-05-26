@@ -19,28 +19,43 @@
 
 ;; packages
 
-(setq package-list '(multiple-cursors
+(setq package-list '(;; lsp
+                     lsp-mode
+                     lsp-ui
+                     flycheck
                      company
-                     gdscript-mode
+                     lsp-treemacs
+                     helm-lsp
+                     lsp-ivy
+                     dap-mode
+
+                     ;; useful packages
+                     multiple-cursors
                      yasnippet-snippets
                      yasnippet
+                     magit
+                     whitespace-cleanup-mode
+                     astyle
+                     elcord
+
+                     ;; language modes
+                     gdscript-mode
                      yaml-mode
-                     gruber-darker-theme
                      nasm-mode
                      rust-mode
-                     magit
                      markdown-mode
                      lua-mode
                      csharp-mode
                      go-mode
                      rainbow-mode
-                     doom-themes
-                     astyle
-                     whitespace-cleanup-mode
-                     elcord
                      cmake-mode
+
+                     ;; themes
+                     doom-themes
+                     gruber-darker-theme
                      ))
 
+(require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
@@ -54,6 +69,7 @@
 
 ;; elcord
 
+(require 'elcord)
 (elcord-mode)
 
 ;; autoload files
@@ -82,6 +98,8 @@
                                 (awk-mode . "awk")
                                 (other . "bsd")))
 
+(require 'simpc-mode)
+
 (add-hook 'simpc-mode-hook
           (lambda ()
             (interactive)
@@ -90,6 +108,8 @@
 
 ;;; whitespace
 
+(require 'whitespace)
+
 (defconst USE-WHITESPACE 1)
 
 (defun rc/set-up-whitespace-handling ()
@@ -97,29 +117,7 @@
   (when (= USE-WHITESPACE 1) (whitespace-mode 1))
   (whitespace-cleanup-mode))
 
-(add-hook 'tuareg-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'java-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'c++-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'lua-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'rust-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'scala-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'markdown-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'haskell-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'python-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'erlang-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'asm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'nasm-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'go-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'nim-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'yaml-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'porth-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'north-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'no-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'loisp-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'simpc-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'gdscript-mode-hook 'rc/set-up-whitespace-handling)
-(add-hook 'js-mode-hook 'rc/set-up-whitespace-handling)
+(add-hook 'prog-mode-hook 'rc/set-up-whitespace-handling)
 
 (setq whitespace-style
    (quote
@@ -127,9 +125,12 @@
 
 ;; yasnippets
 
+(require 'yasnippet)
 (yas-global-mode 1)
 
 ;; multiple cursors
+
+(require 'multiple-cursors)
 
 (global-set-key (kbd "C-x RET RET") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -138,12 +139,21 @@
 
 ;; company mode
 
+(require 'company)
+
 (global-company-mode)
 
 (add-hook 'tuareg-mode-hook
           (lambda ()
             (interactive)
             (company-mode 0)))
+
+;; lsp-mode
+
+(setq-default lsp-keymap-prefix "C-c l")
+
+(require 'lsp-mode)
+(add-hook 'prog-mode-hook #'lsp-deferred)
 
 ;; duplicate line
 
@@ -161,4 +171,5 @@
 
 ;; nasm mode
 
+(require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm?\\'" . nasm-mode))

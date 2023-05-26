@@ -6,3 +6,6 @@ games
 eshell
 network-security.data
 transient
+.cache
+.dap-breakpoints
+.lsp-session-v1
