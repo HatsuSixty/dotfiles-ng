@@ -95,3 +95,4 @@ PATH=$PATH:/home/roberto/.opt/node/bin
 PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bin
 PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/Godot
 PATH=$PATH:/home/roberto/.opt/platform-tools
+PATH=$PATH:/home/roberto/go/bin/
