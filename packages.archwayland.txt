@@ -8,7 +8,7 @@ dunst
 pulseaudio
 udiskie
 cups
-hyprland
 hyprpaper
+swaybg
 inotify-tools
 dex
