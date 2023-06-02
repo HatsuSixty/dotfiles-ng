@@ -14,7 +14,7 @@ run udiskie
 run dex -a
 
 gnome_schema=org.gnome.desktop.interface
-cursor_theme=macOS-Monterey
+cursor_theme=Adwaita-smol
 
 hyprctl setcursor $cursor_theme 24
 gsettings set $gnome_schema gtk-theme 'adw-gtk3-dark'
