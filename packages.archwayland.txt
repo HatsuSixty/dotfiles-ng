@@ -12,3 +12,4 @@ hyprpaper
 swaybg
 inotify-tools
 dex
+i3blocks
