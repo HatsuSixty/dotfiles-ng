@@ -29,9 +29,9 @@ include wallpaper.conf
 for_window [title="."] title_format "<b>[%shell]</b> %title"
 font pango:monospace 8.7
 titlebar_padding 2
-titlebar_border_thickness 2
+titlebar_border_thickness 1
 
-client.focused #42758a #5ba6c7 #ffffff #42758a
+client.focused #45007a #6100ad #ffffff #45007a
 
 ### Input configuration
 input "type:keyboard"   {
@@ -159,9 +159,9 @@ bar {
 
     colors {
         statusline #ffffff
-        background #292929
+        background #000000
         inactive_workspace #323232 #323232 #5c5c5c
-        focused_workspace #5ba6c7 #42758a #ffffff
+        focused_workspace #6100ad #45007a #ffffff
     }
 
     height 23
