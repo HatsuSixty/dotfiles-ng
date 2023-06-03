@@ -6,10 +6,6 @@ set $down Down
 set $up Up
 set $right Right
 
-set $fm thunar
-set $term alacritty
-set $menu wofi --show drun | xargs swaymsg exec --
-
 include wallpaper.conf
 
 ### Idle configuration
