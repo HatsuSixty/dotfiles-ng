@@ -1,7 +1,7 @@
 python-psutil
 thunar
 alacritty
-wofi
+bemenu-wayland
 grim
 slurp
 dunst

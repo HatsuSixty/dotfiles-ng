@@ -1,4 +1,4 @@
-bind "Super Shift D" "wofi --show drun -I"
+bind "Super Shift D" "bemenu-run"
 
 bind "Super Enter" "alacritty"
 bind "Super Shift Enter" "thunar"
