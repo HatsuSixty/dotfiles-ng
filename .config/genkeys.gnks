@@ -1,4 +1,4 @@
-bind "Super Shift D" "bemenu-run"
+bind "Super Shift D" "j4-dmenu-desktop --dmenu='bemenu -i' --term='termite'"
 
 bind "Super Enter" "alacritty"
 bind "Super Shift Enter" "thunar"

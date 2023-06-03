@@ -2,6 +2,7 @@ python-psutil
 thunar
 alacritty
 bemenu-wayland
+j4-dmenu-desktop
 grim
 slurp
 dunst
