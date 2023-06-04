@@ -29,6 +29,9 @@ titlebar_border_thickness 1
 
 client.focused #45007a #6100ad #ffffff #45007a
 
+### Window rules
+for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
+
 ### Input configuration
 input "type:keyboard"   {
     xkb_layout br
