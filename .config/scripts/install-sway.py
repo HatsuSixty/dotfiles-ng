@@ -6,8 +6,8 @@ from sys import stderr
 
 import psutil
 
-if "SWAY" in (p.name().upper().strip() for p in psutil.process_iter()):
-    print("ERROR: You cannot uninstall Sway white it's running", file=stderr)
+if "HYPRLAND" in (p.name().upper().strip() for p in psutil.process_iter()):
+    print("ERROR: You cannot uninstall Hyprland white it's running", file=stderr)
     exit(1)
 
 def remove_if_installed(package):
