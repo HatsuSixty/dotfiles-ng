@@ -8,7 +8,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Customize PROMPT
-PROMPT="%n@%m:.../%2~ %# "
+PROMPT="%n@%m:%~$ "
 
 # History
 HISTFILE=~/.histfile
