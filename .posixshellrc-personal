@@ -45,7 +45,7 @@ EOF
 export PAGER='less'
 export EDITOR='nvim'
 export VISUAL='code'
-export TOR_DIR='/home/roberto/.opt/tor-browser'
+export TOR_DIR='/home/hatsu/.opt/tor-browser'
 
 ### ALIASES ###
 
@@ -83,16 +83,16 @@ if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-PATH=$PATH:/home/roberto/.opt/porth/
-PATH=$PATH:/home/roberto/.opt/boomer/
-PATH=$PATH:/home/roberto/.opt/ascii-image-converter/
-PATH=$PATH:/home/roberto/.cargo/bin
-PATH=$PATH:/home/roberto/.opt/luaserver/bin
-PATH=$PATH:/home/roberto/.opt/VSCode-linux-x64/bin
-PATH=$PATH:/home/roberto/.opt/mugshot-0.4.3/bin
-PATH=$PATH:/home/roberto/.nimble/bin
-PATH=$PATH:/home/roberto/.opt/node/bin
-PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bin
-PATH=$PATH:/media/roberto/HomePartition/Documents/Programs/Linux/Godot
-PATH=$PATH:/home/roberto/.opt/platform-tools
-PATH=$PATH:/home/roberto/go/bin/
+PATH=$PATH:/home/hatsu/.opt/porth/
+PATH=$PATH:/home/hatsu/.opt/boomer/
+PATH=$PATH:/home/hatsu/.opt/ascii-image-converter/
+PATH=$PATH:/home/hatsu/.cargo/bin
+PATH=$PATH:/home/hatsu/.opt/luaserver/bin
+PATH=$PATH:/home/hatsu/.opt/VSCode-linux-x64/bin
+PATH=$PATH:/home/hatsu/.opt/mugshot-0.4.3/bin
+PATH=$PATH:/home/hatsu/.nimble/bin
+PATH=$PATH:/home/hatsu/.opt/node/bin
+PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bin
+PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/Godot
+PATH=$PATH:/home/hatsu/.opt/platform-tools
+PATH=$PATH:/home/hatsu/go/bin/
