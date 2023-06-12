@@ -49,6 +49,7 @@
                      go-mode
                      rainbow-mode
                      cmake-mode
+                     nim-mode
 
                      ;; themes
                      doom-themes
