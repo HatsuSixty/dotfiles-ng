@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# definetely my coolest workaround
+TERMINAL=$(cat ~/.config/genkeys.gnks | head -1 | awk '{ print $16 }' | cut -b 9- | rev | cut -c 3- | rev)
+if ! pgrep "tmux"; then
+    $TERMINAL -e tmux
+else
+    $TERMINAL -e tmux a
+fi

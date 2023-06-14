@@ -1,6 +1,6 @@
 bind "Super Shift D" "BEMENU_OPTS='--tb #45007a --tf #ffffff --hb #45007a --hf #ffffff' j4-dmenu-desktop --dmenu='bemenu -i' --term='alacritty'"
 
-bind "Super Enter" "alacritty -e tmux"
+bind "Super Enter" "~/.config/scripts/terminal"
 bind "Super Shift Enter" "thunar"
 
 bind "N_8" "~/.config/scripts/volume_up"
