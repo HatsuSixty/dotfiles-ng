@@ -15,3 +15,4 @@ inotify-tools
 dex
 i3blocks
 polkit-kde-agent
+tmux
