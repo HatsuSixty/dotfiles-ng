@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/doom_one_but_with_gruberdarker_background.yml
+  - ~/.config/alacritty/gruber-darker-theme.yml
 
 font:
   normal:
