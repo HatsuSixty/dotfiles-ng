@@ -23,8 +23,8 @@ include wallpaper.conf
 
 ### Titlebars
 for_window [title="."] title_format "<b>[%shell]</b> %title"
-font pango:monospace 8.7
-titlebar_padding 2
+font pango:monospace 8.4
+titlebar_padding 3
 titlebar_border_thickness 1
 
 client.focused #45007a #6100ad #ffffff #45007a
