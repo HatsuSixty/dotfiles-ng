@@ -156,7 +156,9 @@
 (require 'lsp-mode)
 (add-hook 'prog-mode-hook #'lsp-deferred)
 
-;; duplicate line
+;; keybindings
+
+; duplicate line
 
 (defun duplicate-line()
   (interactive)
@@ -169,6 +171,10 @@
 )
 
 (global-set-key (kbd "C-d") 'duplicate-line)
+
+; compile
+
+(global-set-key (kbd "C-c c") 'compile)
 
 ;; nasm mode
 
