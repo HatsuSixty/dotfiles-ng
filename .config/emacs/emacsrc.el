@@ -115,7 +115,7 @@
 
 (defun rc/set-up-whitespace-handling ()
   (interactive)
-  (when (= USE-WHITESPACE 1) (whitespace-mode 1))
+  (whitespace-mode USE-WHITESPACE)
   (whitespace-cleanup-mode))
 
 (add-hook 'prog-mode-hook 'rc/set-up-whitespace-handling)
