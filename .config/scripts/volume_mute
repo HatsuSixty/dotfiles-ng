@@ -3,7 +3,7 @@
 pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 message=""
-if [ "$(pacmd list-sinks | awk '/muted/ { print $2 }')" = "yes" ]; then
+if [ "$(pactl list sinks | awk '/Mute/ { print $2 }')" = "yes" ]; then
     message="Muted"
 else
     message="Unmuted"
