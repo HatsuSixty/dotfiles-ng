@@ -1,0 +1,5 @@
+#!/bin/bash
+
+source ~/.config/scripts/vars.sh
+
+BEMENU_OPTS='--tb #45007a --tf #ffffff --hb #45007a --hf #ffffff' j4-dmenu-desktop --dmenu='bemenu -i' --term=$TERMINAL

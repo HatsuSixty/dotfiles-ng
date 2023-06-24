@@ -1,4 +1,4 @@
-bind "Super Shift D" "BEMENU_OPTS='--tb #45007a --tf #ffffff --hb #45007a --hf #ffffff' j4-dmenu-desktop --dmenu='bemenu -i' --term='alacritty'"
+bind "Super Shift D" "~/.config/scripts/menu"
 
 bind "Super Enter" "~/.config/scripts/terminal"
 bind "Super Shift Enter" "thunar"
