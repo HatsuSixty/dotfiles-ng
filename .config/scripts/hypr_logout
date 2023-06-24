@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source ~/.config/scripts/vars.sh
+
+answer=$(printf "No\nYes" | bemenu -p "Do you wanna logout?")
+if [ $answer = "Yes" ]; then
+    hyprctl dispatch exit
+fi
