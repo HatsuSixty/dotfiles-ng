@@ -6,7 +6,9 @@ j4-dmenu-desktop
 grim
 slurp
 dunst
-pulseaudio
+pipewire-audio
+pipewire-pulse
+pipewire-jack
 udiskie
 cups
 hyprpaper
