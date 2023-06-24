@@ -1,0 +1,12 @@
+#!/bin/bash
+
+source ~/.config/scripts/vars.sh
+
+answer=$(printf "No\nYes" | bemenu -p "Do you wanna logout?")
+if [ $answer = "Yes" ]; then
+    if pgrep Hyprland ; then
+        hyprctl dispatch exit
+    else # fallback to sway
+        swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    fi
+fi
