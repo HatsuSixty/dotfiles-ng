@@ -16,6 +16,6 @@ run dex -a
 gnome_schema=org.gnome.desktop.interface
 cursor_theme=Adwaita-smol
 
-gsettings set $gnome_schema gtk-theme 'adw-gtk3-dark'
+gsettings set $gnome_schema gtk-theme 'Dracula'
 gsettings set $gnome_schema icon-theme 'Adwaita'
 gsettings set $gnome_schema cursor-theme $cursor_theme
