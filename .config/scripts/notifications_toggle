@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ $(dunstctl is-paused) = "false" ]; then
+    ~/.config/scripts/notifications_pause
+else
+    ~/.config/scripts/notifications_unpause
+fi

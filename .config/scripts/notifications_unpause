@@ -1,0 +1,4 @@
+#!/bin/bash
+
+dunstctl set-paused false
+dunstify Notifications Unpaused

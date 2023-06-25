@@ -1,0 +1,10 @@
+#!/bin/bash
+
+pause() {
+  dunstify Notifications Paused
+  sleep 2
+  dunstctl close-all
+  dunstctl set-paused true
+}
+
+pause &

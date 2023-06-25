@@ -1,5 +1,6 @@
 bind "Super Shift D" "~/.config/scripts/menu"
 bind "Super X" "~/.config/scripts/logout"
+bind "Super N" "~/.config/scripts/notifications_toggle"
 
 bind "Super Enter" "~/.config/scripts/terminal"
 bind "Super Shift Enter" "thunar"
