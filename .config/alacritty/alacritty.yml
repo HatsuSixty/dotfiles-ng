@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/gruber-darker-theme.yml
+  - ~/.config/alacritty/dracula.yml
 
 font:
   normal:
