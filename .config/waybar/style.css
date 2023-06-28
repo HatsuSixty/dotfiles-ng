@@ -59,8 +59,7 @@ window#waybar.hidden {
 #temperature,
 #backlight,
 #custom-network,
-#tray,
-#idle_inhibitor {
+#tray {
     padding: 0 10px;
     color: #ffffff;
 }
@@ -123,15 +122,4 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-    background-color: #4f158d;
-    border-bottom: 3px solid #671cb7;
-}
-
-#idle_inhibitor.activated {
-    background-color: #e0cbf7;
-    border-bottom: 3px solid #ffffff;
-    color: #2d3436;
 }

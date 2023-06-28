@@ -3,17 +3,10 @@
 
     "modules-left": ["wlr/workspaces", "hyprland/window"],
     "modules-right": [
-        "idle_inhibitor", "custom/network", "cpu", "memory", "temperature", "backlight", "clock", "tray"
+        "custom/network", "cpu", "memory", "temperature", "backlight", "clock", "tray"
     ],
     "wlr/workspaces": {
         "on-click": "activate"
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
     },
     "custom/network": {
 	    "format": "  {}",
