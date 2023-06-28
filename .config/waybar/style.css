@@ -6,30 +6,35 @@
 }
 
 window#waybar {
-    background-color: #190034;
+    background-color: transparent;
+}
 
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(0.25turn, #520092, #00c5ff 40%, #520092 65%);
-    border-image-slice: 1;
-
+window > box {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: #120026;
+    border-radius: 7px;
     color: #ffffff;
-    transition-property: background-color;
-    transition-duration: .5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
+#workspaces {
+    margin-left: 4px;
+}
+
 #workspaces button, button {
-    /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
-    /* Avoid rounded borders under each button name */
+
     border: none;
     border-radius: 0;
     border-bottom: 3px solid #520092;
-    margin-left: 3;
-    margin-right: 3;
+
+    margin-left: 3px;
+    margin-right: 3px;
     padding: 0 5px;
     background-color: rgb(60, 0, 124);
     color: #ffffff;
@@ -60,19 +65,8 @@ window#waybar.hidden {
     color: #ffffff;
 }
 
-#window,
-#workspaces {
+#window {
     margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
 }
 
 #clock {
@@ -119,6 +113,7 @@ label:focus {
 #tray {
     background-color: #7a21d9;
     border-bottom: 3px solid #520092;
+    margin-right: 7px;
 }
 
 #tray > .passive {
