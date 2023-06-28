@@ -1,5 +1,6 @@
 {
     "spacing": 4,
+    "height": 34,
 
     "modules-left": ["wlr/workspaces", "hyprland/window"],
     "modules-right": [
