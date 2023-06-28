@@ -4,7 +4,7 @@
 }
 
 window#waybar {
-    background-color: #000000;
+    background-color: #190034;
 
     border-bottom: 3px solid transparent;
     border-image: linear-gradient(0.25turn, #520092, #00c5ff 40%, #520092 65%);
@@ -74,8 +74,8 @@ window#waybar.hidden {
 }
 
 #clock {
-    background-color: #64727D;
-    border-bottom: 3px solid #8598a6;
+    background-color: #7921d8;
+    border-bottom: 3px solid #9c56e6;
 }
 
 label:focus {
@@ -83,30 +83,30 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: #a96ee9;
     color: #000000;
-    border-bottom: 3px solid #3bff74;
+    border-bottom: 3px solid #ceadf3;
 }
 
 #memory {
-    background-color: #9b59b6;
-    border-bottom: 3px solid #9e6fff;
+    background-color: #7720d4;
+    border-bottom: 3px solid #8a39e1;
 }
 
 #backlight {
-    background-color: #90b1b1;
-    border-bottom: 3px solid #92e3e3;
+    background-color: #af78eb;
+    border-bottom: 3px solid #d4b6f4;
 }
 
 #custom-network {
-    background-color: #66cc99;
+    background-color: #b785ed;
     color: #000000;
-    border-bottom: 3px solid #89efdf;
+    border-bottom: 3px solid #dac0f6;
 }
 
 #temperature {
-    background-color: #f0932b;
-    border-bottom: 3px solid #f2C52d;
+    background-color: #a86be9;
+    border-bottom: 3px solid #caa4f1;
 }
 
 #temperature.critical {
@@ -115,7 +115,7 @@ label:focus {
 }
 
 #tray {
-    background-color: #2980b9;
+    background-color: #7a21d9;
     border-bottom: 3px solid #520092;
 }
 
@@ -129,12 +129,12 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: #3a4245;
-    border-bottom: 3px solid #535d61;
+    background-color: #4f158d;
+    border-bottom: 3px solid #671cb7;
 }
 
 #idle_inhibitor.activated {
-    background-color: #dadef1;
+    background-color: #e0cbf7;
     border-bottom: 3px solid #ffffff;
     color: #2d3436;
 }
