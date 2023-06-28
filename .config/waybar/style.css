@@ -1,6 +1,8 @@
 * {
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: FontAwesome, FuraMono Nerd Font Mono, monospace, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 0px;
 }
 
 window#waybar {
