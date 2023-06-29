@@ -83,7 +83,6 @@ label:focus {
 
 #cpu {
     background-color: #a96ee9;
-    color: #000000;
     border-bottom: 3px solid #ceadf3;
 }
 
@@ -99,7 +98,6 @@ label:focus {
 
 #custom-network {
     background-color: #b785ed;
-    color: #000000;
     border-bottom: 3px solid #dac0f6;
 }
 
