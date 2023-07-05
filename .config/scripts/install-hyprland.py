@@ -23,4 +23,4 @@ install_package("xdg-desktop-portal-hyprland")
 remove_if_installed("xdg-desktop-portal-wlr")
 
 install_package("hyprland")
-install_package("waybar-hyprland")
+install_package("waybar")
