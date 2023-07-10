@@ -154,6 +154,7 @@
 
 (setq lsp-ui-doc-enable t)
 (setq lsp-ui-doc-show-with-cursor t)
+(setq lsp-ui-doc-position 'bottom)
 
 (setq-default lsp-keymap-prefix "C-c l")
 
