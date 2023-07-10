@@ -92,7 +92,8 @@
 
 (add-hook 'c-mode-hook (lambda ()
                          (interactive)
-                         (c-toggle-comment-style -1)))
+                         (c-toggle-comment-style -1)
+                         (local-set-key (kbd "C-c C-f") 'clang-format-buffer)))
 
 (setq-default c-basic-offset 4
               c-default-style '((java-mode . "java")
