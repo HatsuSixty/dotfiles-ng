@@ -4,5 +4,5 @@ My dotfiles.
 
 ## Quick Start
 ```
-$ ./install.py archwayland # see `install.py help`
+$ ./install.py archwm # see `install.py help`
 ```
