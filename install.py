@@ -20,7 +20,7 @@ def usage(stream):
     print("USAGE: ./install.py <SUBCOMMAND>", file=stream)
     print("  SUBCOMMANDs:", file=stream)
     print("    arch          Install configurations for Arch Linux", file=stream)
-    print("    archwayland   Install configurations for Arch Linux under Wayland", file=stream)
+    print("    archwm        Install configurations for Arch Linux under Wayland", file=stream)
     print("    fedora        Install configurations for Fedora", file=stream)
     print("    ubuntu        Install configurations for Fedora", file=stream)
     print("    help          Shows this help", file=stream)
@@ -48,16 +48,9 @@ def install_packages_ubuntu(packages):
 
 if argv[1] == "arch":
     install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
-elif argv[1] == "archwayland":
+elif argv[1] == "archwm":
     install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
-    install_packages_arch(get_programs_from_packagestxt("packages.archwayland.txt"))
-
-    # install yay
-    exec_as_normal_user(["git", "clone", "https://aur.archlinux.org/yay.git", f"{HOME}/.cache/yay-aur"])
-    run(["sh", "-c", "cd {HOME}/.cache/yay-aur && sudo -u {USER} makepkg -si"])
-
-    # install waybar
-    exec_as_normal_user(["yay", "-S", "waybar-hyprland"])
+    install_packages_arch(get_programs_from_packagestxt("packages.archwm.txt"))
 elif argv[1] == "fedora":
     install_packages_fedora(get_programs_from_packagestxt("packages.fedora.txt"))
 elif argv[1] == "ubuntu":
