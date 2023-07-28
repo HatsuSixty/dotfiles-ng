@@ -16,5 +16,6 @@ run picom
 
 if pgrep bspwm ; then
     run nitrogen --restore
+    run polybar
     xsetroot -cursor_name left_ptr
 fi
