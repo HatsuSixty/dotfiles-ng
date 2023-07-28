@@ -17,6 +17,10 @@ def remove_if_installed(package):
 def install_package(package):
     run(["yay", "-S", package])
 
+remove_if_installed("bspwm")
+remove_if_installed("sxhkd")
+remove_if_installed("polybar")
+
 remove_if_installed("hyprland")
 remove_if_installed("waybar")
 
