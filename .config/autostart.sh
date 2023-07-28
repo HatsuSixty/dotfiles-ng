@@ -16,4 +16,5 @@ run picom
 
 if pgrep bspwm ; then
     run nitrogen --restore
+    xsetroot -cursor_name left_ptr
 fi
