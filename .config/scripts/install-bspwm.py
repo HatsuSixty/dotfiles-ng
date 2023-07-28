@@ -26,4 +26,4 @@ remove_if_installed("xdg-desktop-portal-wlr")
 
 install_package("bspwm")
 install_package("sxhkd")
-install_package("polybar")
+install_package("polybar-git")
