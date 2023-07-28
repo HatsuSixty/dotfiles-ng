@@ -12,6 +12,7 @@ run pipewire-pulse 1>&2 > /dev/null
 run fcitx-autostart
 run udiskie
 run dex -a
+run picom
 
 if pgrep bspwm ; then
     run nitrogen --restore
