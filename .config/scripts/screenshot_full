@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if pgrep bspwm ; then
+    scrot
+else
+    grim $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+fi
