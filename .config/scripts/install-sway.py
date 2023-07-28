@@ -18,7 +18,7 @@ def install_package(package):
     run(["yay", "-S", package])
 
 remove_if_installed("hyprland")
-remove_if_installed("waybar-hyprland")
+remove_if_installed("waybar")
 
 install_package("xdg-desktop-portal-wlr")
 remove_if_installed("xdg-desktop-portal-hyprland")

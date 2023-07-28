@@ -18,4 +18,3 @@ dex
 i3blocks
 polkit-kde-agent
 tmux
-waybar
