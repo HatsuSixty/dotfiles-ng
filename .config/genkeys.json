@@ -1,5 +1,6 @@
 {
     "WriteToFile": true,
     "HyprlandPath": "/home/hatsu/.config/hypr/keys.conf",
-    "SwayPath": "/home/hatsu/.config/sway/keys.conf"
+    "SwayPath": "/home/hatsu/.config/sway/keys.conf",
+    "BspwmPath": "/home/hatsu/.config/sxhkd/keys.conf"
 }
