@@ -35,3 +35,6 @@ super + @space
     else \
         bspc node focused -t tiled; \
     fi
+
+super + f
+	bspc node -t \~fullscreen
