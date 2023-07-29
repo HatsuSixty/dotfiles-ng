@@ -11,8 +11,8 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc config focused_border_color \#8f15ed
-bspc config normal_border_color \#00c5ff
+bspc config normal_border_color \#8f15ed
+bspc config focused_border_color \#00c5ff
 bspc config focus_follows_pointer true
 
 ~/.config/autostart.sh
