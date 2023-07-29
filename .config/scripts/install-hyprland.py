@@ -20,6 +20,7 @@ def install_package(package):
 remove_if_installed("bspwm")
 remove_if_installed("sxhkd")
 remove_if_installed("polybar-git")
+remove_if_installed("caffeine-ng")
 
 remove_if_installed("sway")
 
