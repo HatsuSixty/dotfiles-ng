@@ -58,6 +58,7 @@ alias demacs="/bin/emacs"
 alias hiy="git"
 alias last_installed="/bin/ls --time-style=+%d\ %b\ %G\ %H:%M -lct /etc | tail -1 | awk '{print \$6, \$7, \$8, \$9}'"
 alias wget="wget -c"
+alias lf="EDITOR=$VISUAL lf"
 
 # list
 alias ls='exa --color=always -lah'
