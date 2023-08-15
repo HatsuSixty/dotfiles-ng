@@ -1,3 +1,3 @@
-require("hatsu.remap")
-require("hatsu.packer")
 require("hatsu.set")
+require("hatsu.keymaps")
+require("hatsu.pkg")
