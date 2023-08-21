@@ -97,3 +97,4 @@ PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/IntelliJ\ Idea/bi
 PATH=$PATH:/media/hatsu/HomePartition/Documents/Programs/Linux/Godot
 PATH=$PATH:/home/hatsu/.opt/platform-tools
 PATH=$PATH:/home/hatsu/go/bin/
+PATH=$PATH:/home/hatsu/.opt/zig
