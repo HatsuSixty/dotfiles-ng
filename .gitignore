@@ -1,2 +1,15 @@
 *~
 .config/sway/wallpaper.conf
+.config/emacs/auto-save-list
+.config/emacs/elpa
+.config/emacs/games
+.config/emacs/.mc-lists.el
+.config/emacs/eshell
+.config/emacs/network-security.data
+.config/emacs/transient
+.config/emacs/.cache
+.config/emacs/.dap-breakpoints
+.config/emacs/.lsp-session-v1
+.config/nvim/plugin
+.config/hypr/hyprpaper.conf
+.config/sway/wallpaper.conf
