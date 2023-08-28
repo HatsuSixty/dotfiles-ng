@@ -181,6 +181,14 @@
 
 (global-set-key (kbd "C-c c") 'compile)
 
+; terminal
+
+(global-set-key (kbd "C-`") (lambda()
+                              (interactive)
+                              (split-window-below)
+                              (other-window 1)
+                              (term "/bin/zsh")))
+
 ;; nasm mode
 
 (require 'nasm-mode)
