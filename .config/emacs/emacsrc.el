@@ -75,6 +75,7 @@
 
 ;; autoload files
 
+(add-to-list 'load-path "~/.config/emacs/lisp/")
 (mapc 'load (file-expand-wildcards "~/.config/emacs/lisp/*.el"))
 
 ;; setup themes
@@ -108,7 +109,7 @@
             (setq-local fill-paragraph-function 'astyle-buffer)
             (local-set-key (kbd "C-c C-f") 'astyle-region)))
 
-;;; whitespace
+;; whitespace
 
 (require 'whitespace)
 
@@ -193,3 +194,12 @@
 
 (require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm?\\'" . nasm-mode))
+
+;; editorconfig
+
+(require 'editorconfig)
+(editorconfig-mode 1)
+
+(add-hook 'before-save-hook (lambda()
+                              (interactive)
+                              (editorconfig-format-buffer)))
