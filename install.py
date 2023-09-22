@@ -119,7 +119,7 @@ if argv[1] == "help":
     usage(stdout)
     exit(0)
 elif argv[1] == "windows":
-    print("TODO", file=stream)
+    print("TODO", file=stderr)
     exit(1)
 elif argv[1] == "linux":
     if len(argv) < 3:
