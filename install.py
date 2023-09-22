@@ -18,6 +18,21 @@ if name == 'nt':
     TEMP = getenv("TEMP")
     WINDIR = getenv("WINDIR")
 
+def get_programs_from_packagestxt(f):
+    return open(f).read().split()
+
+def install_packages_arch(packages):
+    assert isinstance(packages, list)
+    run(["pacman", "-Syu", "--needed"] + packages)
+
+def install_packages_fedora(packages):
+    assert isinstance(packages, list)
+    run(["dnf", "install"] + packages)
+
+def install_packages_ubuntu(packages):
+    assert isinstance(packages, list)
+    run(["apt", "install"] + packages)
+
 def install_fonts():
     fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip"
 
@@ -57,87 +72,78 @@ def install_fonts():
         print("ERROR: Unsupported platform", file=stderr)
         exit(1)
 
-def get_programs_from_packagestxt(f):
-    return open(f).read().split()
+def install_linux_shell():
+    # Install zsh-syntax-highlighting
+    ZSH_SH_PATH = f"{HOME}/.zshsh"
+    if not isdir(ZSH_SH_PATH) and not isfile(ZSH_SH_PATH):
+        run(["wget", "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.7.1.tar.gz", "-O", f"{HOME}/.cache/a.tar.gz"])
+        run(["tar", "-axvf", f"{HOME}/.cache/a.tar.gz", "-C", f"{HOME}/.cache"])
+        move(f"{HOME}/.cache/zsh-syntax-highlighting-0.7.1", ZSH_SH_PATH)
+
+        # backup .bashrc
+        move(f"{HOME}/.bashrc", f"{HOME}/.bashrc.bak")
+
+        # Install zsh-autosuggestions
+        ZSH_AS_PATH = f"{HOME}/.zshas"
+        if not isdir(ZSH_AS_PATH) and not isfile(ZSH_AS_PATH):
+            run(["git", "clone", "--depth=1", "https://github.com/zsh-users/zsh-autosuggestions.git", ZSH_AS_PATH])
+
+        # Install powerlevel0k
+        run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME}/.powerlevel10k"])
+
+def install_linux_dotfiles():
+    run(["stow", "."])
 
 if getenv("USER") != "root":
     run(["sudo", "python", __file__] + argv[1:])
     exit(0)
 
-USER = listdir("/home")[0]
-HOME = "/home/" + USER
-
 def usage(stream):
     print("USAGE: ./install.py <SUBCOMMAND>", file=stream)
     print("  SUBCOMMANDs:", file=stream)
-    print("    arch          Install configurations for Arch Linux", file=stream)
-    print("    archwm        Install configurations for Arch Linux under Wayland", file=stream)
-    print("    fedora        Install configurations for Fedora", file=stream)
-    print("    ubuntu        Install configurations for Fedora", file=stream)
     print("    help          Shows this help", file=stream)
+    print("    windows        Install for Windows", file=stream)
+    print("    linux <DISTRO> Install for Linux <DISTRO>", file=stream)
+    print("      DISTROs:")
+    print("        arch          Install configurations for Arch Linux", file=stream)
+    print("        archwm        Install configurations for Arch Linux under Wayland", file=stream)
+    print("        fedora        Install configurations for Fedora", file=stream)
+    print("        ubuntu        Install configurations for Fedora", file=stream)
 
 if len(argv) < 2:
     print("ERROR: No subcommand was provided", file=stderr)
     usage(stderr)
     exit(1)
 
-def exec_as_normal_user(command):
-    assert isinstance(command, list)
-    run(["sudo", "-u", USER, "sh", "-c", " ".join(command)])
-
-def install_packages_arch(packages):
-    assert isinstance(packages, list)
-    run(["pacman", "-Syu", "--needed"] + packages)
-
-def install_packages_fedora(packages):
-    assert isinstance(packages, list)
-    run(["dnf", "install"] + packages)
-
-def install_packages_ubuntu(packages):
-    assert isinstance(packages, list)
-    run(["apt", "install"] + packages)
-
-if argv[1] == "arch":
-    install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
-elif argv[1] == "archwm":
-    install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
-    install_packages_arch(get_programs_from_packagestxt("packages.archwm.txt"))
-elif argv[1] == "fedora":
-    install_packages_fedora(get_programs_from_packagestxt("packages.fedora.txt"))
-elif argv[1] == "ubuntu":
-    install_packages_ubuntu(get_programs_from_packagestxt("packages.ubuntu.txt"))
-elif argv[1] == "help":
+if argv[1] == "help":
     usage(stdout)
     exit(0)
+elif argv[1] == "windows":
+    print("TODO", file=stream)
+    exit(1)
+elif argv[1] == "linux":
+    if len(argv) < 3:
+        print("ERROR: No distribution was provided", file=stream)
+        usage(stderr)
+        exit(1)
+    if argv[2] == "arch":
+        install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
+    elif argv[2] == "archwm":
+        install_packages_arch(get_programs_from_packagestxt("packages.arch.txt"))
+        install_packages_arch(get_programs_from_packagestxt("packages.archwm.txt"))
+    elif argv[2] == "fedora":
+        install_packages_fedora(get_programs_from_packagestxt("packages.fedora.txt"))
+    elif argv[2] == "ubuntu":
+        install_packages_ubuntu(get_programs_from_packagestxt("packages.ubuntu.txt"))
+    else:
+        print(f"ERROR: Unsupported distribution: `{argv[2]}`", file=stderr)
+        usage(stderr)
+        exit(1)
+
+    install_fonts()
+    install_linux_dotfiles()
+    install_linux_shell()
 else:
     print(f"ERROR: Unknown subcommand: `{argv[1]}`", file=stderr)
     usage(stderr)
     exit(1)
-
-# install fonts
-
-install_fonts()
-
-# install configuration files
-
-# backup .bashrc
-move(f"{HOME}/.bashrc", f"{HOME}/.bashrc.bak")
-
-run(["stow", "."])
-
-# Install zsh-syntax-highlighting
-
-ZSH_SH_PATH = f"{HOME}/.zshsh"
-if not isdir(ZSH_SH_PATH) and not isfile(ZSH_SH_PATH):
-    run(["wget", "https://github.com/zsh-users/zsh-syntax-highlighting/archive/refs/tags/0.7.1.tar.gz", "-O", f"{HOME}/.cache/a.tar.gz"])
-    run(["tar", "-axvf", f"{HOME}/.cache/a.tar.gz", "-C", f"{HOME}/.cache"])
-    move(f"{HOME}/.cache/zsh-syntax-highlighting-0.7.1", ZSH_SH_PATH)
-
-# Install zsh-autosuggestions
-
-ZSH_AS_PATH = f"{HOME}/.zshas"
-if not isdir(ZSH_AS_PATH) and not isfile(ZSH_AS_PATH):
-    run(["git", "clone", "--depth=1", "https://github.com/zsh-users/zsh-autosuggestions.git", ZSH_AS_PATH])
-
-# Install powerlevel0k
-run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME}/.powerlevel10k"])
