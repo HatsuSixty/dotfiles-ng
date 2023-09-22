@@ -1,8 +1,8 @@
-;; make emacs stop asking about themes
+;;; make emacs stop asking about themes
 
 (setq custom-safe-themes t)
 
-;; simplify GUI & appearance
+;;; simplify GUI & appearance
 
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -17,9 +17,9 @@
 
 (add-to-list 'default-frame-alist '(font . "FuraMono Nerd Font Mono 14"))
 
-;; packages
+;;; packages
 
-(setq package-list '(;; lsp
+(setq package-list '(;;; lsp
                      lsp-mode
                      lsp-ui
                      flycheck
@@ -29,7 +29,7 @@
                      lsp-ivy
                      dap-mode
 
-                     ;; useful packages
+                     ;;; useful packages
                      multiple-cursors
                      yasnippet-snippets
                      yasnippet
@@ -38,7 +38,7 @@
                      astyle
                      elcord
 
-                     ;; language modes
+                     ;;; language modes
                      gdscript-mode
                      yaml-mode
                      nasm-mode
@@ -51,7 +51,7 @@
                      cmake-mode
                      nim-mode
 
-                     ;; themes
+                     ;;; themes
                      doom-themes
                      gruber-darker-theme
                      ))
@@ -68,26 +68,26 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-;; elcord
+;;; elcord
 
 (require 'elcord)
 (elcord-mode)
 
-;; autoload files
+;;; autoload files
 
 (add-to-list 'load-path "~/.config/emacs/lisp/")
 (mapc 'load (file-expand-wildcards "~/.config/emacs/lisp/*.el"))
 
-;; setup themes
+;;; setup themes
 
 (add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
 
-;;; tabs and spaces
+;;;; tabs and spaces
 
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
 
-;;; c-mode
+;;;; c-mode
 
 ;;(add-to-list 'auto-mode-alist '("\\.[hc]\\(pp\\)?\\'" . simpc-mode))
 
@@ -109,7 +109,7 @@
             (setq-local fill-paragraph-function 'astyle-buffer)
             (local-set-key (kbd "C-c C-f") 'astyle-region)))
 
-;; whitespace
+;;; whitespace
 
 (require 'whitespace)
 
@@ -123,15 +123,15 @@
 (add-hook 'prog-mode-hook 'rc/set-up-whitespace-handling)
 
 (setq whitespace-style
-   (quote
-    (face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
+      (quote
+       (face tabs spaces trailing space-before-tab newline indentation empty space-after-tab space-mark tab-mark)))
 
-;; yasnippets
+;;; yasnippets
 
 (require 'yasnippet)
 (yas-global-mode 1)
 
-;; multiple cursors
+;;; multiple cursors
 
 (require 'multiple-cursors)
 
@@ -140,7 +140,7 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; company mode
+;;; company mode
 
 (require 'company)
 
@@ -151,7 +151,7 @@
             (interactive)
             (company-mode 0)))
 
-;; lsp-mode
+;;; lsp-mode
 
 (setq lsp-ui-doc-enable t)
 (setq lsp-ui-doc-show-with-cursor t)
@@ -162,9 +162,9 @@
 (require 'lsp-mode)
 (add-hook 'prog-mode-hook #'lsp-deferred)
 
-;; keybindings
+;;; keybindings
 
-; duplicate line
+;; duplicate line
 
 (defun duplicate-line()
   (interactive)
@@ -173,16 +173,15 @@
   (yank)
   (open-line 1)
   (next-line 1)
-  (yank)
-)
+  (yank))
 
 (global-set-key (kbd "C-d") 'duplicate-line)
 
-; compile
+;; compile
 
 (global-set-key (kbd "C-c c") 'compile)
 
-; terminal
+;; terminal
 
 (global-set-key (kbd "C-`") (lambda()
                               (interactive)
@@ -190,16 +189,20 @@
                               (other-window 1)
                               (term "/bin/zsh")))
 
-;; nasm mode
+;;; nasm mode
 
 (require 'nasm-mode)
 (add-to-list 'auto-mode-alist '("\\.asm?\\'" . nasm-mode))
 
-;; editorconfig
+;;; editorconfig
 
 (require 'editorconfig)
 (editorconfig-mode 1)
 
-(add-hook 'before-save-hook (lambda()
-                              (interactive)
-                              (editorconfig-format-buffer)))
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (add-hook 'before-save-hook
+                      (lambda()
+                        (interactive)
+                        (unless (equal major-mode 'makefile-gmake-mode)
+                          (editorconfig-format-buffer))))))
