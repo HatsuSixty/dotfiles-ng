@@ -141,8 +141,8 @@ elif argv[1] == "linux":
         exit(1)
 
     install_fonts()
-    install_linux_dotfiles()
     install_linux_shell()
+    install_linux_dotfiles()
 else:
     print(f"ERROR: Unknown subcommand: `{argv[1]}`", file=stderr)
     usage(stderr)
