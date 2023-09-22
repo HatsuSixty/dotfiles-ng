@@ -123,7 +123,7 @@ elif argv[1] == "windows":
     exit(1)
 elif argv[1] == "linux":
     if len(argv) < 3:
-        print("ERROR: No distribution was provided", file=stream)
+        print("ERROR: No distribution was provided", file=stderr)
         usage(stderr)
         exit(1)
     if argv[2] == "arch":
