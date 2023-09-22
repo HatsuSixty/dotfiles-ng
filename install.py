@@ -1,10 +1,61 @@
 #!/bin/env python3
 
-from os import getenv, listdir, makedirs, walk
-from os.path import isdir, isfile, join, dirname, basename
+from os import getenv, listdir, makedirs, walk, name
+from os.path import isdir, isfile, join, dirname, basename, splitext
 from shutil import copy, move
 from subprocess import run
 from sys import argv, stderr, stdout
+
+USER = ""
+HOME = ""
+TEMP = ""
+WINDIR = ""
+if name == 'posix':
+    USER = listdir("/home")[0]
+    HOME = "/home/" + USER
+    TEMP = "/tmp"
+if name == 'nt':
+    TEMP = getenv("TEMP")
+    WINDIR = getenv("WINDIR")
+
+def install_fonts():
+    fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip"
+
+    if name == 'nt':
+        run(["curl", "-fkLo", TEMP + "\\fonts.zip", fonts_url])
+        if not isdir(TEMP + "\\fonts"):
+            makedirs(TEMP + "\\fonts")
+        run(["unzip", TEMP + "\\fonts.zip", "-d", TEMP + "\\fonts"])
+
+        fonts = listdir(TEMP + "\\fonts")
+        for f in fonts:
+            fupper = f.upper()
+            print(fupper)
+            if not (fupper.endswith(".MD") or fupper.endswith(".TXT")):
+                run(["cmd", "/c", TEMP + "\\fonts\\" + f])
+    elif name == 'posix':
+        if not isfile(HOME + "/.cache/fonts.zip"):
+            run(["wget",
+                 fonts_url,
+                 "-O",
+                 HOME + "/.cache/fonts.zip"])
+            if not isdir(HOME + "/.cache/fonts"):
+                makedirs(HOME + "/.cache/fonts")
+            run(["unzip", HOME + "/.cache/fonts.zip", "-d", HOME + "/.cache/fonts"])
+
+            for directory, folders, files in walk(HOME + "/.cache/fonts"):
+                for f in files:
+                    fil = join(directory, f)
+                    move(fil, join(dirname(fil), basename(fil).replace(' ', '')))
+
+            fonts = listdir(HOME + "/.cache/fonts")
+            for f in fonts:
+                fupper = f.upper()
+                if not fupper.endswith(".MD") or fupper.endswith(".TXT"):
+                    copy(HOME + "/.cache/fonts/" + f, "/usr/share/fonts/" + f)
+    else:
+        print("ERROR: Unsupported platform", file=stderr)
+        exit(1)
 
 def get_programs_from_packagestxt(f):
     return open(f).read().split()
@@ -65,24 +116,7 @@ else:
 
 # install fonts
 
-if not isfile(HOME + "/.cache/fonts.zip"):
-    run(["wget",
-        "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip",
-        "-O",
-        HOME + "/.cache/fonts.zip"])
-    if not isdir(HOME + "/.cache/fonts"):
-        makedirs(HOME + "/.cache/fonts")
-    run(["unzip", HOME + "/.cache/fonts.zip", "-d", HOME + "/.cache/fonts"])
-
-    for directory, folders, files in walk(HOME + "/.cache/fonts"):
-        for f in files:
-            fil = join(directory, f)
-            move(fil, join(dirname(fil), basename(fil).replace(' ', '')))
-
-    fonts = listdir(HOME + "/.cache/fonts")
-    for f in fonts:
-        if not (f.endswith(".md") or f.endswith(".txt") or f.endswith(".MD") or f.endswith(".TXT")):
-            copy(HOME + "/.cache/fonts/" + f, "/usr/share/fonts/" + f)
+install_fonts()
 
 # install configuration files
 
