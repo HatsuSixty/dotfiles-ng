@@ -75,12 +75,15 @@
 
 ;;; autoload files
 
-(add-to-list 'load-path "~/.config/emacs/lisp/")
-(mapc 'load (file-expand-wildcards "~/.config/emacs/lisp/*.el"))
+(add-to-list 'load-path
+             (concat user-emacs-directory (file-name-as-directory "lisp")))
+(mapc 'load (file-expand-wildcards
+             (concat user-emacs-directory (file-name-as-directory "lisp") "*.el")))
 
 ;;; setup themes
 
-(add-to-list 'custom-theme-load-path "~/.config/emacs/themes/")
+(add-to-list 'custom-theme-load-path
+             (concat user-emacs-directory (file-name-as-directory "themes")))
 
 ;;;; tabs and spaces
 
