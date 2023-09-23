@@ -1,22 +1,24 @@
 #!/bin/env python3
 
 from os import getenv, listdir, makedirs, walk, name
-from os.path import isdir, isfile, join, dirname, basename, splitext
+from os.path import isdir, isfile, join, dirname, basename, splitext, abspath
 from shutil import copy, move
 from subprocess import run
 from sys import argv, stderr, stdout
+if name == 'nt':
+    import ctypes
 
 USER = ""
 HOME = ""
 TEMP = ""
-WINDIR = ""
+APPDATA = ""
 if name == 'posix':
     USER = listdir("/home")[0]
     HOME = "/home/" + USER
     TEMP = "/tmp"
 if name == 'nt':
     TEMP = getenv("TEMP")
-    WINDIR = getenv("WINDIR")
+    APPDATA = getenv("APPDATA")
 
 def get_programs_from_packagestxt(f):
     return open(f).read().split()
@@ -33,6 +35,9 @@ def install_packages_ubuntu(packages):
     assert isinstance(packages, list)
     run(["apt", "install"] + packages)
 
+def create_symlink_windows(src, dst):
+    run(["cmd", "/c", "mklink /d " + dst + " " + src])
+
 def install_fonts():
     fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip"
 
@@ -40,12 +45,12 @@ def install_fonts():
         run(["curl", "-fkLo", TEMP + "\\fonts.zip", fonts_url])
         if not isdir(TEMP + "\\fonts"):
             makedirs(TEMP + "\\fonts")
+
         run(["unzip", TEMP + "\\fonts.zip", "-d", TEMP + "\\fonts"])
 
         fonts = listdir(TEMP + "\\fonts")
         for f in fonts:
             fupper = f.upper()
-            print(fupper)
             if not (fupper.endswith(".MD") or fupper.endswith(".TXT")):
                 run(["cmd", "/c", TEMP + "\\fonts\\" + f])
     elif name == 'posix':
@@ -56,6 +61,7 @@ def install_fonts():
                  HOME + "/.cache/fonts.zip"])
             if not isdir(HOME + "/.cache/fonts"):
                 makedirs(HOME + "/.cache/fonts")
+
             run(["unzip", HOME + "/.cache/fonts.zip", "-d", HOME + "/.cache/fonts"])
 
             for directory, folders, files in walk(HOME + "/.cache/fonts"):
@@ -94,9 +100,22 @@ def install_linux_shell():
 def install_linux_dotfiles():
     run(["stow", "."])
 
-if getenv("USER") != "root":
-    run(["sudo", "python", __file__] + argv[1:])
-    exit(0)
+def install_windows_dotfiles():
+    create_symlink_windows(abspath(".\\.config\\emacs"), APPDATA + "\\.emacs.d")
+    create_symlink_windows(abspath(".\\.config\\nvim"),
+                           abspath(APPDATA + "\\..\\Local\\nvim"))
+
+if name == 'posix':
+    if getenv("USER") != "root":
+        run(["sudo", "python", __file__] + argv[1:])
+        exit(0)
+elif name == 'nt':
+    if ctypes.windll.shell32.IsUserAnAdmin() == 0:
+        print("ERROR: This script must be run as administrator", file=stderr)
+        exit(1)
+else:
+    print("ERROR: Unsupported platform", file=stderr)
+    exit(1)
 
 def usage(stream):
     print("USAGE: ./install.py <SUBCOMMAND>", file=stream)
@@ -119,8 +138,8 @@ if argv[1] == "help":
     usage(stdout)
     exit(0)
 elif argv[1] == "windows":
-    print("TODO", file=stderr)
-    exit(1)
+    install_fonts()
+    install_windows_dotfiles()
 elif argv[1] == "linux":
     if len(argv) < 3:
         print("ERROR: No distribution was provided", file=stderr)
