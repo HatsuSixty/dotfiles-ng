@@ -207,5 +207,6 @@
             (add-hook 'before-save-hook
                       (lambda()
                         (interactive)
-                        (unless (equal major-mode 'makefile-gmake-mode)
+                        (unless (or (eq major-mode 'makefile-gmake-mode)
+                                    (eq major-mode 'sh-mode))
                           (editorconfig-format-buffer))))))
