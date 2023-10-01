@@ -116,7 +116,7 @@
 
 (require 'whitespace)
 
-(defconst USE-WHITESPACE 0)
+(defconst USE-WHITESPACE 1)
 
 (defun rc/set-up-whitespace-handling ()
   (interactive)
