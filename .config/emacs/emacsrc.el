@@ -208,5 +208,7 @@
                       (lambda()
                         (interactive)
                         (unless (or (eq major-mode 'makefile-gmake-mode)
-                                    (eq major-mode 'sh-mode))
+                                    (eq major-mode 'sh-mode)
+                                    (eq major-mode 'markdown-mode)
+                                    (eq major-mode 'rust-mode))
                           (editorconfig-format-buffer))))))
