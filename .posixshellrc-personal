@@ -61,7 +61,7 @@ alias lf="VISUAL=$EDITOR lf"
 alias neofetch="hyfetch"
 
 # list
-alias ls='exa --color=always -lah'
+alias ls='eza --color=always -lah'
 alias l='ls'
 alias l.="ls -A | egrep '^\.'"
 
