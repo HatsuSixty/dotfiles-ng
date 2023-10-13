@@ -3,7 +3,7 @@
 source ~/.config/scripts/vars.sh
 
 if ! pgrep "tmux"; then
-    $TERMINAL -e tmux
+    $TERMINAL -e "tmux"
 else
-    $TERMINAL -e tmux a
+    $TERMINAL -e "tmux a"
 fi
