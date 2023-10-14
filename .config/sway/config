@@ -27,7 +27,7 @@ font pango:monospace 8.4
 titlebar_padding 2
 titlebar_border_thickness 1
 
-client.focused #45007a #6100ad #ffffff #45007a
+#client.focused #45007a #6100ad #ffffff #45007a
 
 ### Window rules
 for_window [app_id="org.kde.polkit-kde-authentication-agent-1"] floating enable
@@ -154,12 +154,12 @@ bar {
 
     status_command i3blocks
 
-    colors {
-        statusline #ffffff
-        background #000000
-        inactive_workspace #323232 #323232 #5c5c5c
-        focused_workspace #6100ad #45007a #ffffff
-    }
+    #colors {
+    #    statusline #ffffff
+    #    background #000000
+    #    inactive_workspace #323232 #323232 #5c5c5c
+    #    focused_workspace #6100ad #45007a #ffffff
+    #}
 
     font pango:monospace 8.7
     height 23
