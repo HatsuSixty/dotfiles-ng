@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! ping -c 4 example.com &> /dev/null; then
+if ! ping -c 4 8.8.8.8 &> /dev/null; then
     echo "Offline"
 else
     echo "Online"
