@@ -203,6 +203,16 @@
 (require 'editorconfig)
 (editorconfig-mode 1)
 
+(defun editorconfig-exists ()
+  (interactive)
+  (eval-and-compile (require 'editorconfig-core))
+  (let ((result nil))
+    (setq result (editorconfig-core-get-nearest-editorconfig
+                  default-directory))
+    (unless (eq result nil)
+      (setq result t))
+    result))
+
 (add-hook 'prog-mode-hook
           (lambda ()
             (add-hook 'before-save-hook
@@ -213,5 +223,7 @@
                                     (eq major-mode 'markdown-mode)
                                     (eq major-mode 'conf-space-mode)
                                     (eq major-mode 'fundamental-mode)
-                                    (eq major-mode 'rust-mode))
+                                    (eq major-mode 'rust-mode)
+                                    (eq major-mode 'meson-mode)
+                                    (not (editorconfig-exists)))
                           (editorconfig-format-buffer))))))
