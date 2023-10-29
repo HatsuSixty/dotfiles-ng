@@ -50,6 +50,7 @@
                      rainbow-mode
                      cmake-mode
                      nim-mode
+                     meson-mode
 
                      ;;; themes
                      doom-themes
