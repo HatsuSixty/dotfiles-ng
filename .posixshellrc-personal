@@ -46,6 +46,8 @@ export PAGER='less'
 export EDITOR='nvim'
 export VISUAL='code'
 export TOR_DIR='/home/hatsu/.opt/tor-browser'
+export CC=clang
+export CXX=clang++
 
 ### ALIASES ###
 
