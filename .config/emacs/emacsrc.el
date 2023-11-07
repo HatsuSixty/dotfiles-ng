@@ -157,7 +157,8 @@
 
 ;;; lsp-mode
 
-(setq lsp-ui-doc-enable t)
+;;(setq lsp-ui-doc-enable t)
+(setq lsp-ui-doc-enable nil)
 (setq lsp-ui-doc-show-with-cursor t)
 (setq lsp-ui-doc-position 'bottom)
 
