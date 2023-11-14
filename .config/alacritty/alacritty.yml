@@ -1,7 +1,12 @@
 import:
-  - ~/.config/alacritty/dos.yml
-  - ~/.config/alacritty/dos-fonts.yml
+  - ~/.config/alacritty/gruber-darker-theme-black-background.yml
+  - ~/.config/alacritty/normal-fonts.yml
 
 window:
   opacity: 1
 #  opacity: 0.6555
+
+cursor:
+  style:
+    blinking: On
+  blink_timeout: 0
