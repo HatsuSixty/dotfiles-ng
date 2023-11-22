@@ -2,6 +2,9 @@ import:
   - ~/.config/alacritty/gruber-darker-theme-black-background.yml
   - ~/.config/alacritty/normal-fonts.yml
 
+env:
+  TERM: xterm-256color
+
 window:
   opacity: 1
 #  opacity: 0.6555
@@ -9,4 +12,5 @@ window:
 cursor:
   style:
     blinking: On
-  blink_timeout: 0
+#  blink_timeout: 0
+#  blink_interval: 500
