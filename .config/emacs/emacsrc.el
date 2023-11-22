@@ -228,3 +228,7 @@
                                     (eq major-mode 'meson-mode)
                                     (not (editorconfig-exists)))
                           (editorconfig-format-buffer))))))
+
+;;; dired
+
+(setq dired-listing-switches "-lah --group-directories-first")
