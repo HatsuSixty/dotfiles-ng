@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    "sainnhe/sonokai",
     "folke/tokyonight.nvim",
     {
         'windwp/nvim-autopairs',
