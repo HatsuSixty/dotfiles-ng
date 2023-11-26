@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    "andweeb/presence.nvim",
     "sainnhe/sonokai",
     "folke/tokyonight.nvim",
     {
