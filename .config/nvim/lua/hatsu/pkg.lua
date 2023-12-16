@@ -15,6 +15,7 @@ require("lazy").setup({
     "andweeb/presence.nvim",
     "sainnhe/sonokai",
     "folke/tokyonight.nvim",
+    "ellisonleao/gruvbox.nvim",
     {
         'windwp/nvim-autopairs',
         event = "InsertEnter",
