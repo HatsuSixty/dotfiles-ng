@@ -1,3 +1,7 @@
+;;; remove annoying warnings
+
+(setq warning-minimum-level :emergency)
+
 ;;; make emacs stop asking about themes
 
 (setq custom-safe-themes t)

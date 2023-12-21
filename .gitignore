@@ -8,6 +8,7 @@
 .config/emacs/network-security.data
 .config/emacs/transient
 .config/emacs/.cache
+.config/emacs/eln-cache
 .config/emacs/.dap-breakpoints
 .config/emacs/.lsp-session-v1
 .config/nvim/plugin
