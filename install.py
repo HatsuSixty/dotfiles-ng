@@ -110,6 +110,12 @@ def install_linux_shell() -> None:
     # Install powerlevel0k
     run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME()}/.powerlevel10k"])
 
+    # Install eza
+    run(["wget", "https://github.com/eza-community/eza/releases/download/v0.17.0/eza_x86_64-unknown-linux-gnu.zip", "-O", f"{HOME()}/.cache/eza.zip"])
+    run(["unzip", HOME() + "/.cache/eza.zip", "-d", HOME() + "/.cache/eza"])
+    makedirs(HOME() + "/.local/bin", exist_ok=True)
+    copy(HOME() + "/.cache/eza/eza", HOME() + "/.local/bin/eza")
+
 def install_linux_dotfiles() -> None:
     run(["stow", "."])
 
