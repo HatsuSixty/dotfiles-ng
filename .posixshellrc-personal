@@ -19,7 +19,8 @@ function fix_dunst()
     fi
 }
 
-function set_random_wallpaper {
+function set_random_wallpaper()
+{
     wallpaper_s=~/.cache/set_random_wallpaper.py
     cat <<EOF > ${wallpaper_s}
 import subprocess
