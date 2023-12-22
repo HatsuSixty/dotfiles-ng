@@ -99,16 +99,16 @@ def install_linux_shell() -> None:
         run(["tar", "-axvf", f"{HOME()}/.cache/a.tar.gz", "-C", f"{HOME()}/.cache"])
         move(f"{HOME()}/.cache/zsh-syntax-highlighting-0.7.1", ZSH_SH_PATH)
 
-        # backup .bashrc
-        move(f"{HOME()}/.bashrc", f"{HOME()}/.bashrc.bak")
+    # backup .bashrc
+    move(f"{HOME()}/.bashrc", f"{HOME()}/.bashrc.bak")
 
-        # Install zsh-autosuggestions
-        ZSH_AS_PATH = f"{HOME()}/.zshas"
-        if not isdir(ZSH_AS_PATH) and not isfile(ZSH_AS_PATH):
-            run(["git", "clone", "--depth=1", "https://github.com/zsh-users/zsh-autosuggestions.git", ZSH_AS_PATH])
+    # Install zsh-autosuggestions
+    ZSH_AS_PATH = f"{HOME()}/.zshas"
+    if not isdir(ZSH_AS_PATH) and not isfile(ZSH_AS_PATH):
+        run(["git", "clone", "--depth=1", "https://github.com/zsh-users/zsh-autosuggestions.git", ZSH_AS_PATH])
 
-        # Install powerlevel0k
-        run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME()}/.powerlevel10k"])
+    # Install powerlevel0k
+    run(["git", "clone", "--depth=1", "https://github.com/romkatv/powerlevel10k.git", f"{HOME()}/.powerlevel10k"])
 
 def install_linux_dotfiles() -> None:
     run(["stow", "."])
