@@ -41,6 +41,7 @@
                      whitespace-cleanup-mode
                      astyle
                      elcord
+                     evil
 
                      ;;; language modes
                      gdscript-mode
@@ -72,6 +73,11 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+;;; evil
+
+(require 'evil)
+(evil-mode 1)
 
 ;;; elcord
 
