@@ -1,5 +1,5 @@
 import:
-  - ~/.config/alacritty/themes/sonokai-shusia.yml
+  - ~/.config/alacritty/themes/gruber-darker-theme.yml
   - ~/.config/alacritty/fonts/normal-fonts.yml
 
 env:
