@@ -11,6 +11,7 @@
 .config/emacs/eln-cache
 .config/emacs/.dap-breakpoints
 .config/emacs/.lsp-session-v1
+.config/emacs/url
 .config/nvim/plugin
 .config/hypr/hyprpaper.conf
 .config/sway/wallpaper.conf
