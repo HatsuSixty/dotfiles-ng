@@ -10,7 +10,7 @@ function run {
 run dunst
 run pipewire-pulse 1>&2 > /dev/null
 run fcitx-autostart
-run udiskie
+run udiskie -t
 run dex -a
 run picom
 
