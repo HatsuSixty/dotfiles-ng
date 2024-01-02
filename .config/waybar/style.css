@@ -1,127 +1,132 @@
 * {
-    min-height: 0;
-    font-family: FontAwesome, FuraMono Nerd Font Mono, monospace, Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
+    border: none;
     border-radius: 0px;
+    font-family: Roboto Mono SemiBold, Iosevka Nerd Font;
+    font-size: 12px;
+    font-style: normal;
+    min-height: 0;
 }
 
 window#waybar {
-    background-color: transparent;
-}
-
-window > box {
-    box-shadow: 0px 0px 3px 2px #101010;
-
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color: #120026;
-    border-radius: 7px;
-    color: #ffffff;
-}
-
-window#waybar.hidden {
-    opacity: 0.2;
-}
-
-#workspaces {
-    margin-left: 4px;
-}
-
-#workspaces button, button {
-    box-shadow: inset 0 -3px transparent;
-
-    border: none;
-    border-radius: 0;
-    border-bottom: 3px solid #520092;
-
-    margin-left: 3px;
-    margin-right: 3px;
-    padding: 0 5px;
-    background-color: rgb(60, 0, 124);
-    color: #ffffff;
-}
-
-#workspaces button:hover, button:hover {
-    background: rgb(104, 22, 168);
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.active {
-    background-color: #7e23c4;
-}
-
-#workspaces button.urgent {
-    background-color: #eb4d4b;
+    background: rgba(76,86,106,0.8);
+    color: #cdd6f4
 }
 
 #clock,
+#pulseaudio,
+#network,
+#custom-logo,
 #cpu,
 #memory,
-#temperature,
-#backlight,
-#custom-network,
-#tray {
-    padding: 0 10px;
-    color: #ffffff;
+#disk,
+#temperature {
+    background-color: #2e3440;
+    color: #a3be8c;
+    border-radius: 10px;
+    margin: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
 }
 
-#window {
-    margin: 0 4px;
+#workspaces button {
+    color: white;
+}
+
+#tray {
+    background: #2e3440;
+    margin: 2px;
+    border-radius: 10px;
+    padding: 0px 12px;
 }
 
 #clock {
-    background-color: #7921d8;
-    border-bottom: 3px solid #9c56e6;
+    color: #cdd6f4;
+    background-color: #2e3440;
+    border-radius: 12px 12px 12px 12px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-weight: bold;
 }
 
-label:focus {
-    background-color: #000000;
+#network {
+    background-color: #2e3440;
+    color: #B48EAD;
+    border-radius: 10px;
+}
+
+#pulseaudio {
+    color: #5e81ac;
+    background: #2e3440;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
+}
+
+#custom-logo {
+    color: #cdd6f4;
+    background-color: #2e3440;
+    border-radius: 0px 24px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 0 20px 0 13px;
+    font-size: 20px;
+}
+
+#window {
+    background: #2e3440;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: normal;
+    font-style: normal;
 }
 
 #cpu {
-    background-color: #a96ee9;
-    border-bottom: 3px solid #ceadf3;
+    background-color: #2e3440;
+    color: #bf616a;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
 }
 
 #memory {
-    background-color: #7720d4;
-    border-bottom: 3px solid #8a39e1;
+    background-color: #2e3440;
+    color: #88c0d0;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
 }
 
-#backlight {
-    background-color: #af78eb;
-    border-bottom: 3px solid #d4b6f4;
-}
-
-#custom-network {
-    background-color: #b785ed;
-    border-bottom: 3px solid #dac0f6;
+#disk {
+    background-color: #2e3440;
+    color: #d08770;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 0px 10px 0px 10px;
+    font-weight: bold;
 }
 
 #temperature {
-    background-color: #a86be9;
-    border-bottom: 3px solid #caa4f1;
+    background-color: #2e3440;
+    color: #ebcb8b;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
-    border-bottom: 3px solid #f2C52d;
-}
-
-#tray {
-    background-color: #7a21d9;
-    border-bottom: 3px solid #520092;
-    margin-right: 7px;
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
+    background-color: #a3be8c;
+    color: #282738;
+    border-radius: 10px;
 }

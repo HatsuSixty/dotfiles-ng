@@ -1,46 +1,98 @@
 {
-    "spacing": 4,
-    "height": 34,
+    "position": "top",
+    "layer": "top",
+    "height": 16,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-right": [
-        "custom/network", "cpu", "memory", "temperature", "backlight", "clock", "tray"
-    ],
-    "hyprland/workspaces": {
-        "on-click": "activate"
-    },
-    "custom/network": {
-	    "format": "  {}",
-  	    "interval": 5,
-  	    "exec": "sh -c ~/.config/scripts/network_available",
+    "modules-left": ["custom/logo", "hyprland/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["temperature", "disk", "memory", "cpu", "network", "pulseaudio", "tray"],
+
+    "custom/logo": {
+        "format": ""
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "interval": 1,
+        "format-alt": "   {:%B %d   %H:%M:%S}",
+        "format": "  {:%H:%M}",
+        "on-click-middle": "gnome-calendar",
+        "tooltip-format": "\n<span size='14pt' font='JetBrains Mono ExtraBold'>{calendar}</span>",
+        "calendar": {
+            "mode"          : "month",
+            "mode-mon-col"  : 3,
+            "on-scroll"     : 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#5e81ac'><b>{}</b></span>",
+                "days":       "<span color='#88c0d0'><b>{}</b></span>",
+                "weekdays":   "<span color='#d08770'><b>{}</b></span>",
+                "today":      "<span color='#bf616a'><b><u>{}</u></b></span>"
+            }
+        }
     },
-    "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
-    },
-    "memory": {
-        "format": "{}% "
-    },
-    "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    "pulseaudio": {
+        "format": "<span size='12000'>{icon}</span> {volume}%",
+        "format-muted": "<span size='12000' foreground='#ff7eb6'></span> {volume}%",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " "]
+        },
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
     },
     "tray": {
-        // "icon-size": 21,
-        "spacing": 10
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "memory": {
+        "format": " {}%",
+        "format-alt": " {used}/{total} GiB",
+        "interval": 5
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "format-alt": "󰍛 {avg_frequency} GHz",
+        "interval": 5
+    },
+    "disk": {
+        "format": "  {}%",
+        "format-alt": "  {used}/{total} GiB",
+        "interval": 20,
+        "path": "/"
+    },
+    "temperature": {
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "critical-threshold": 80,
+        "interval": 2,
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip": true
+    },
+    "network": {
+        "format-ethernet": " Net",
+        "format-linked": "{ifname} (No IP)  ",
+        "format-disconnected": "Disconnected ⚠ ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "format-icons": {
+            "urgent": "",
+            "active": "",
+            "default": ""
+        },
+        "sort-by-number": true
     }
 }
