@@ -2,11 +2,11 @@
     "spacing": 4,
     "height": 34,
 
-    "modules-left": ["wlr/workspaces", "hyprland/window"],
+    "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-right": [
         "custom/network", "cpu", "memory", "temperature", "backlight", "clock", "tray"
     ],
-    "wlr/workspaces": {
+    "hyprland/workspaces": {
         "on-click": "activate"
     },
     "custom/network": {
