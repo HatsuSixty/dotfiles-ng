@@ -52,7 +52,7 @@ def create_symlink_windows(src: str, dst: str) -> None:
     run(["cmd", "/c", "mklink /d " + dst + " " + src])
 
 def install_fonts() -> None:
-    fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v2.2.2/FiraMono.zip"
+    fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraMono.zip"
 
     if sys.platform == 'win32':
         run(["curl", "-fkLo", TEMP() + "\\fonts.zip", fonts_url])
