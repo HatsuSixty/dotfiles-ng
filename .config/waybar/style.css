@@ -8,8 +8,8 @@
 }
 
 window#waybar {
-    background: rgba(76,86,106,0.8);
-    color: #cdd6f4
+    background: #302d41;
+    color: #FFFFFF;
 }
 
 #clock,
@@ -20,8 +20,8 @@ window#waybar {
 #memory,
 #disk,
 #temperature {
-    background-color: #2e3440;
-    color: #a3be8c;
+    background-color: #7648AF;
+    color: #c5e6aa;
     border-radius: 10px;
     margin: 2px;
     margin-left: 5px;
@@ -35,15 +35,15 @@ window#waybar {
 }
 
 #tray {
-    background: #2e3440;
+    background: #7648AF;
     margin: 2px;
     border-radius: 10px;
     padding: 0px 12px;
 }
 
 #clock {
-    color: #cdd6f4;
-    background-color: #2e3440;
+    color: #FFFFFF;
+    background-color: #7648AF;
     border-radius: 12px 12px 12px 12px;
     padding-left: 15px;
     padding-right: 15px;
@@ -55,14 +55,14 @@ window#waybar {
 }
 
 #network {
-    background-color: #2e3440;
-    color: #B48EAD;
+    background-color: #7648AF;
+    color: #e3b9dc;
     border-radius: 10px;
 }
 
 #pulseaudio {
-    color: #5e81ac;
-    background: #2e3440;
+    color: #a4cdff;
+    background: #7648AF;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -71,8 +71,8 @@ window#waybar {
 }
 
 #custom-logo {
-    color: #cdd6f4;
-    background-color: #2e3440;
+    color: #FFFFFF;
+    background-color: #7648AF;
     border-radius: 0px 24px 0px 0px;
     margin: 0px 0px 0px 0px;
     padding: 0 20px 0 13px;
@@ -80,7 +80,7 @@ window#waybar {
 }
 
 #window {
-    background: #2e3440;
+    background: #7648AF;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 10px;
@@ -91,8 +91,8 @@ window#waybar {
 }
 
 #cpu {
-    background-color: #2e3440;
-    color: #bf616a;
+    background-color: #7648AF;
+    color: #ffc8cd;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -101,8 +101,8 @@ window#waybar {
 }
 
 #memory {
-    background-color: #2e3440;
-    color: #88c0d0;
+    background-color: #7648AF;
+    color: #b9e9f7;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -111,8 +111,8 @@ window#waybar {
 }
 
 #disk {
-    background-color: #2e3440;
-    color: #d08770;
+    background-color: #7648AF;
+    color: #ffd9cd;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
@@ -121,12 +121,12 @@ window#waybar {
 }
 
 #temperature {
-    background-color: #2e3440;
-    color: #ebcb8b;
+    background-color: #7648AF;
+    color: #ffe7b7;
 }
 
 #temperature.critical {
-    background-color: #a3be8c;
+    background-color: #dbffbc;
     color: #282738;
     border-radius: 10px;
 }
