@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background: #302d41;
+    background: rgba(48, 45, 65, 0.3);
     color: #FFFFFF;
 }
 
