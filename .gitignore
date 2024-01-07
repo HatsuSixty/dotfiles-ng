@@ -15,3 +15,4 @@
 .config/nvim/plugin
 .config/hypr/hyprpaper.conf
 .config/sway/wallpaper.conf
+.config/scripts/terminal

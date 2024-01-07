@@ -185,6 +185,9 @@ if __name__ == '__main__':
         install_fonts()
         install_linux_shell()
         install_linux_dotfiles()
+        run(["gcc", "-o",
+             HOME() + "/.config/scripts/terminal",
+             HOME() + "/.config/scripts/terminal.c"])
     else:
         print(f"ERROR: Unknown subcommand: `{subcommand}`", file=stderr)
         usage(stderr)
