@@ -19,7 +19,7 @@
 (when (version<= "26.0.50" emacs-version)
   (global-display-line-numbers-mode))
 
-(add-to-list 'default-frame-alist '(font . "FiraMono Nerd Font Mono 14"))
+(add-to-list 'default-frame-alist '(font . "Iosevka Nerd Font Mono 14"))
 
 ;;; packages
 

@@ -52,7 +52,7 @@ def create_symlink_windows(src: str, dst: str) -> None:
     run(["cmd", "/c", "mklink /d " + dst + " " + src])
 
 def install_fonts() -> None:
-    fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/FiraMono.zip"
+    fonts_url = "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Iosevka.zip"
 
     if sys.platform == 'win32':
         run(["curl", "-fkLo", TEMP() + "\\fonts.zip", fonts_url])
@@ -153,6 +153,9 @@ if __name__ == '__main__':
     else:
         print("ERROR: Unsupported platform", file=stderr)
         exit(1)
+
+    install_fonts()
+    exit(0)
 
     subcommand = argv[1]
     if subcommand == "help":
