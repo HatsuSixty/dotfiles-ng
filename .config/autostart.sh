@@ -23,7 +23,6 @@ if pgrep bspwm ; then
 fi
 
 if pgrep dwm ; then
-    echo test > ~/hi
     run nitrogen --restore
     run caffeine
     pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/keys.conf &
