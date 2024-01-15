@@ -19,4 +19,12 @@ if pgrep bspwm ; then
     run polybar
     run caffeine
     xsetroot -cursor_name left_ptr
+    pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/keys.conf &
+fi
+
+if pgrep dwm ; then
+    echo test > ~/hi
+    run nitrogen --restore
+    run caffeine
+    pgrep -x sxhkd > /dev/null || sxhkd -c ~/.config/sxhkd/sxhkdrc ~/.config/sxhkd/keys.conf &
 fi
