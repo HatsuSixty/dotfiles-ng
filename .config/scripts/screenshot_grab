@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if pgrep bspwm ; then
-    maim -s $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+if pgrep bspwm || pgrep dwm ; then
+    maim -s | xclip -selection clipboard -t image/png
+    xclip -selection clipboard -o > $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 else
-    slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+    slurp | grim -g - - | xclip -selection clipboard -t image/png
+    xclip -selection clipboard -o > $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 fi

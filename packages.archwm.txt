@@ -21,3 +21,4 @@ polkit-kde-agent
 tmux
 nitrogen
 maim
+xclip
