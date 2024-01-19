@@ -104,7 +104,7 @@
    `(match ((t (:background ,groover-darker-bg+4))))
    `(shadow ((t (:foreground ,groover-darker-bg+4))))
    `(minibuffer-prompt ((t (:foreground ,groover-darker-niagara))))
-   `(region ((t (:background ,groover-darker-bg+3 :foreground nil))))
+   `(region ((t (:background ,groover-darker-bg+3 :foreground ,groover-darker-white))))
    `(secondary-selection ((t ,(list :background groover-darker-bg+3
                                     :foreground nil))))
    `(trailing-whitespace ((t ,(list :foreground groover-darker-black
