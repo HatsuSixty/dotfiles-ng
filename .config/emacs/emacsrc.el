@@ -77,7 +77,7 @@
 ;;; evil
 
 (require 'evil)
-(evil-mode 1)
+;(evil-mode 1)
 (evil-ex-define-cmd "q[uit]" 'kill-current-buffer)
 (setq evil-undo-system 'undo-redo)
 
