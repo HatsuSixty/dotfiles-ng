@@ -49,6 +49,7 @@ bool execute_shell_command(char* command, char *const envp[])
     if (pid == 0) {
         char* shell = "/bin/sh";
         char* const args[] = {shell, "-c", command, NULL};
+        chdir("/home/hatsu/hhome");
         execve(shell, args, envp);
     }
 
