@@ -154,9 +154,6 @@ if __name__ == '__main__':
         print("ERROR: Unsupported platform", file=stderr)
         exit(1)
 
-    install_fonts()
-    exit(0)
-
     subcommand = argv[1]
     if subcommand == "help":
         usage(stdout)

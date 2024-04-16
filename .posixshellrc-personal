@@ -106,3 +106,4 @@ PATH=$PATH:/home/hatsu/.opt/platform-tools
 PATH=$PATH:/home/hatsu/go/bin/
 PATH=$PATH:/home/hatsu/.opt/zig
 PATH=$PATH:/home/hatsu/.opt/gf
+PATH=$PATH:/home/hatsu/.opt/tcc/bin
