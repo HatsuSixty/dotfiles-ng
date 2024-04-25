@@ -12,4 +12,4 @@ bind "N_2" "~/.config/scripts/volume_down"
 bind "Print" "~/.config/scripts/screenshot_full"
 bind "Super Shift Print" "~/.config/scripts/screenshot_grab"
 
-bind "Super Z" "~/.opt/boomer/boomer"
+bind "Super Z" "zoomer"
