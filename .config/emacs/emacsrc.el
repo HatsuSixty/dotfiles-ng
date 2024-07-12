@@ -56,6 +56,7 @@
                      cmake-mode
                      nim-mode
                      meson-mode
+                     typescript-mode
 
                      ;;; themes
                      doom-themes
