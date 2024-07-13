@@ -41,6 +41,15 @@ EOF
     python3 ${wallpaper_s}
 }
 
+function cd()
+{
+    if [ -z $@ ]; then
+        builtin cd $HOME/hhome
+    else
+        builtin cd $@
+    fi
+}
+
 ### EXPORTS ###
 
 export PAGER='less'
