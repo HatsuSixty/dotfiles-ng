@@ -61,6 +61,7 @@ export CXX=clang++
 
 ### ALIASES ###
 
+alias girlboss="sudo !!"
 alias nano="echo \"ERROR: could not open nano: normie editor detected\""
 alias cls="clear"
 alias vim="nvim"
