@@ -44,7 +44,7 @@ EOF
 function cd()
 {
     if [ -z $@ ]; then
-        builtin cd $HOME/hhome
+        builtin cd $HOME/Home
     else
         builtin cd $@
     fi
@@ -117,3 +117,4 @@ PATH=$PATH:/home/hatsu/go/bin/
 PATH=$PATH:/home/hatsu/.opt/zig
 PATH=$PATH:/home/hatsu/.opt/gf
 PATH=$PATH:/home/hatsu/.opt/tcc/bin
+PATH=$PATH:/home/hatsu/.opt/c3
