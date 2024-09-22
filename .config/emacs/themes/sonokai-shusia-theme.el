@@ -1,7 +1,7 @@
 ;;; sonokai-shusia-theme.el --- Sonokai Shusia Theme  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2023 Alexander Chan
 ;; Copyright (C) 2024 Hatsu Sixty
+;; Copyright (C) 2023 Alexander Chan
 
 ;; Author: Hatsu Sixty <hatsunotsus@gmail.com>
 ;; Original Author: Alexander Chan
@@ -47,7 +47,7 @@
 ;; black:   #181819 #101010 #282828
 ;; white:   #E2E2E3 #BfBFBF #F0F0F0
 ;; bg:      #2D2A2E #242124 #353137
-;; bg-alt:  #37343A #2C292E #413C45
+;; bg-alt:  #413C45 #343037 #4D4355
 ;; d-red:   #55393D #482F32 #906369
 ;; d-blue:  #354157 #2B3649 #5B6F92
 ;; d-green: #394634 #2F3B2B #6D8464
@@ -63,12 +63,6 @@
   "Sonokai Shusia theme options.
 The theme has to be reloaded after changing anything in this group."
   :group 'faces)
-
-(defcustom sonokai-shusia-distinct-fringe-background t
-  "Make the fringe background different from the normal background color.
-Also affects 'linum-mode' background."
-  :type 'boolean
-  :group 'sonokai-shusia)
 
 (defcustom sonokai-shusia-use-variable-pitch nil
   "Use variable pitch face for some headings and titles."
@@ -172,7 +166,7 @@ Also affects 'linum-mode' background."
   :type 'string
   :group 'sonokai-shusia)
 
-(defcustom sonokai-shusia-background-alt "#37343A"
+(defcustom sonokai-shusia-background-alt "#4D4355"
   "Adaptive colors - background alt."
   :type 'string
   :group 'sonokai-shusia)
@@ -221,8 +215,8 @@ Also affects 'linum-mode' background."
        (sonokai-shusia-white-l        "#F0F0F0")
        (sonokai-shusia-background-d   "#242124")
        (sonokai-shusia-background-l   "#353137")
-       (sonokai-shusia-bg-alt-d       "#2C292E")
-       (sonokai-shusia-bg-alt-l       "#413C45")
+       (sonokai-shusia-bg-alt-d       "#343037")
+       (sonokai-shusia-bg-alt-l       "#4D4355")
 
        ;; Adaptive colors
        (sonokai-shusia-comments       sonokai-shusia-gray)
@@ -257,10 +251,8 @@ Also affects 'linum-mode' background."
        (sonokai-shusia-green-hc-alt   "#A7DF78")
        (sonokai-shusia-green-lc       sonokai-shusia-green-l)
 
-       ;; Distinct fringe
-       (sonokai-shusia-fringe-bg (if sonokai-shusia-distinct-fringe-background
-                                     sonokai-shusia-gray
-                                   sonokai-shusia-background))
+       ;; Fringe
+       (sonokai-shusia-fringe-bg sonokai-shusia-background)
 
        ;; Definitions for terminals that do not support 256 colors
        (sonokai-shusia-256-class '((class color) (min-colors 89)))
@@ -348,10 +340,8 @@ Also affects 'linum-mode' background."
        (sonokai-shusia-256-green-hc       sonokai-shusia-256-green-d)
        (sonokai-shusia-256-green-lc       sonokai-shusia-256-green-l)
 
-       ;; Distinct fringe
-       (sonokai-shusia-256-fringe-bg (if sonokai-shusia-distinct-fringe-background
-                                         sonokai-shusia-256-gray
-                                       sonokai-shusia-256-background)))
+       ;; Fringe
+       (sonokai-shusia-256-fringe-bg sonokai-shusia-256-background))
 
   ;; Define faces
   (custom-theme-set-faces
